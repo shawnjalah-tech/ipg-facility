@@ -1,0 +1,17 @@
+[Unit]
+Description=IPG Facility queue worker
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/srv/ipg-facility
+ExecStart=/usr/bin/php /srv/ipg-facility/artisan queue:work --sleep=2 --tries=3 --timeout=60 --max-time=3600
+Restart=always
+RestartSec=5
+TimeoutStopSec=75
+UMask=0002
+
+[Install]
+WantedBy=multi-user.target

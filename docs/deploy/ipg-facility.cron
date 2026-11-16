@@ -1,0 +1,5 @@
+# Install as /etc/cron.d/ipg-facility with root ownership and mode 0644.
+# Change the path and account to match the deployed app.
+SHELL=/bin/sh
+PATH=/usr/local/bin:/usr/bin:/bin
+* * * * * www-data cd /srv/ipg-facility && umask 0002 && /usr/bin/php artisan schedule:run --no-interaction

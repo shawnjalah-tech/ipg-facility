@@ -1,0 +1,38 @@
+# Replace the hostname, document root, certificate paths and PHP-FPM socket.
+# Add to an existing Nginx http {} configuration (e.g. sites-enabled).
+server {
+    listen 80;
+    server_name ipg.example.org;
+    if ($host != ipg.example.org) { return 421; }
+    location / { return 301 https://ipg.example.org$request_uri; }
+}
+
+server {
+    listen 443 ssl;
+    server_name ipg.example.org;
+    root /srv/ipg-facility/public;
+    index index.php;
+    if ($host != ipg.example.org) { return 421; }
+
+    ssl_certificate /etc/letsencrypt/live/ipg.example.org/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/ipg.example.org/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+
+    add_header X-Content-Type-Options nosniff always;
+    add_header X-Frame-Options SAMEORIGIN always;
+    add_header Referrer-Policy strict-origin-when-cross-origin always;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location = /index.php {
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $realpath_root/index.php;
+        fastcgi_param HTTPS on;
+        fastcgi_pass unix:/run/php/php8.4-fpm.sock;
+    }
+
+    location ~ \.php(?:/|$) { return 404; }
+    location ~ /\.(?!well-known(?:/|$)) { deny all; }
+}

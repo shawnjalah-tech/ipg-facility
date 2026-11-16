@@ -1,0 +1,1 @@
+document.addEventListener('DOMContentLoaded',function(){function tick(){var e=document.getElementById('client-clock');if(e)e.textContent=new Intl.DateTimeFormat('en-MY',{timeZone:'Asia/Kuching',hour:'2-digit',minute:'2-digit'}).format(new Date());}tick();setInterval(tick,60000);});

@@ -1,0 +1,42 @@
+/* Component-scoped styles: does not modify other select elements. */
+.staff-picker { position: relative; }
+.staff-picker[hidden], .staff-picker-results[hidden] { display: none !important; }
+.staff-picker-search { width: 100%; }
+.staff-picker-results {
+    position: absolute;
+    z-index: 80;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    max-height: 285px;
+    overflow-y: auto;
+    background: #fff;
+    border: 1px solid #ccd4df;
+    border-radius: 9px;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, .16);
+    padding: 5px;
+}
+.staff-picker-option {
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    color: #17253b;
+    text-align: left;
+    line-height: 1.35;
+    font-size: .93rem;
+    cursor: pointer;
+    overflow-wrap: anywhere;
+}
+.staff-picker-option:hover, .staff-picker-option.is-active,
+.staff-picker-option:focus-visible { background: #e9f3ff; color: #123c72; outline: none; }
+.staff-picker-option:focus-visible { box-shadow: inset 0 0 0 2px #4085c5; }
+.staff-picker-more, .staff-picker-empty {
+    padding: 11px 12px;
+    font-size: .84rem;
+    line-height: 1.35;
+    color: #536174;
+}
+.staff-picker-status { font-size: .82rem; color: #536174; margin-top: 5px; }

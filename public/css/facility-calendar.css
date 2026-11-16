@@ -1,0 +1,116 @@
+/* Phase 6.1 calendar — scoped to .fb- so the existing dashboard stays unchanged. */
+.fb-shell {color:#343a40; font-family:inherit;}
+.fb-board-heading {display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 16px;margin:16px 0 10px}
+.fb-board-heading h2 {margin:0;color:#278184;font-size:.74rem;font-weight:700;letter-spacing:.08em}
+.fb-eyebrow {margin:0 0 6px;color:#26878a;letter-spacing:.11em;font-size:.68rem;font-weight:700;text-transform:uppercase}
+.fb-legend {display:flex;gap:13px;flex-wrap:wrap;font-size:.74rem;color:#5d6871;align-items:center}
+.fb-legend span {white-space:nowrap;display:inline-flex;gap:6px;align-items:center}
+.fb-dot {width:9px;height:9px;border-radius:50%;display:inline-block;background:#d4e5e4}
+.fb-dot-free {background:#55ac8b}.fb-dot-booked{background:#df8590}.fb-dot-pending{background:#e0ad60}.fb-dot-closed{background:#9e9cbb}
+.fb-toolbar {display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.fb-week-nav {display:inline-flex;align-items:center;gap:4px;padding:4px;background:#fff;border:1px solid #e6ecee;border-radius:9px}
+.fb-week-nav a {text-decoration:none;min-width:28px;min-height:28px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;color:#278184}
+.fb-week-nav a:hover {background:#e9f7f5}
+.fb-week-label {font-weight:600;font-size:.77rem;white-space:nowrap;padding:0 7px}
+.fb-week-nav .fb-today {font-size:.72rem;padding:0 7px;border-left:1px solid #e4ebed;border-radius:0}
+.fb-filters {display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+.fb-filters label {font-size:.73rem;font-weight:600;margin:0}
+.fb-filters select {min-width:138px;max-width:210px}
+.fb-search-wrap {margin-left:auto;flex:0 1 190px;min-width:125px}
+.fb-search-wrap input {width:100%}
+.fb-groups {display:grid;gap:11px}
+.fb-category {background:#fff;border:1px solid #e5ebee;border-radius:11px;overflow:hidden;box-shadow:0 2px 9px rgba(22,52,55,.025)}
+.fb-category-title {cursor:pointer;display:flex;align-items:center;gap:12px;padding:14px 17px;list-style:none;user-select:none}
+.fb-category-title::-webkit-details-marker {display:none}
+.fb-category-title:hover {background:#f7fbfa}
+.fb-category-toggle {color:#28878b;border-radius:6px;background:#e9f5f5;width:25px;height:25px;display:flex;align-items:center;justify-content:center;font-size:1.35rem;line-height:1;transition:transform .15s}
+.fb-category[open] .fb-category-toggle{transform:rotate(90deg)}
+.fb-category-name {font-size:.92rem;font-weight:600}
+.fb-category-count {font-size:.74rem;color:#78868d;margin-left:auto}
+.fb-table-scroll {overflow:auto;max-height:66vh;border-top:1px solid #e9eef0;scrollbar-color:#c8d8da transparent;overscroll-behavior:contain}
+.fb-board {border-collapse:separate;border-spacing:0;width:100%;min-width:940px;table-layout:fixed;margin:0}
+.fb-board th,.fb-board td {border-right:1px solid #eaf0f1;border-bottom:1px solid #eaf0f1;vertical-align:top}
+.fb-board thead th {background:#f4f9f9;padding:11px 8px;text-align:center;position:sticky;top:0;z-index:2;box-shadow:0 1px 0 #eaf0f1}
+.fb-board thead th.fb-facility-col {text-align:left;z-index:4}
+.fb-board .fb-facility-col {width:160px;position:sticky;left:0;z-index:1;background:#fff;text-align:left}
+.fb-board tbody .fb-facility-col {padding:15px 11px;background:#fcfdfd;vertical-align:middle}
+.fb-dayname {display:block;font-size:.7rem;color:#7d8b93;text-transform:uppercase;letter-spacing:.04em;font-weight:600}
+.fb-daydate {display:block;font-size:.85rem;font-weight:600;color:#43535c;margin-top:3px}
+.fb-board thead .fb-is-today {background:#e6f5f2}
+.fb-room-name {display:block;font-size:.82rem;font-weight:600;line-height:1.4;color:#344b52;overflow-wrap:anywhere}
+.fb-room-capacity {display:block;font-size:.68rem;color:#8a969e;margin-top:5px;font-weight:400}
+.fb-day-cell {height:98px;padding:6px!important;background:#fff;min-width:0}
+.fb-day-cell.fb-is-booked {background:#fffbfc}
+.fb-day-cell.fb-is-closed {background:#f4f3f8}
+.fb-day-cell.fb-is-limited {background:#fffcf5}
+.fb-day-cell.fb-is-past {background:#fafbfb}
+.fb-cell-content {display:flex;flex-direction:column;gap:5px;align-items:stretch;height:100%;min-height:84px}
+.fb-person {background:#fae9ed;color:#90414e!important;border:1px solid #f6dce1;padding:5px 6px;border-radius:6px;display:block;min-width:0;text-decoration:none!important}
+.fb-person:hover {background:#f7dfe4}
+.fb-person-pending {background:#fff2de;border-color:#fae5bc;color:#82561c!important}
+.fb-person-name {display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:.71rem;font-weight:600}
+.fb-person-time {display:block;white-space:nowrap;font-size:.63rem;opacity:.8}
+.fb-book {margin-top:auto;display:block;text-decoration:none!important;font-size:.73rem;line-height:1.4;font-weight:600;color:#26775b!important;text-align:center;padding:7px 3px;background:#edf8f1;border:1px dashed #aad7c0;border-radius:6px}
+.fb-book:hover {background:#d9f2e4;border-color:#58b68c}
+.fb-more {font-size:.66rem;text-align:center;color:#247d80;text-decoration:underline}
+.fb-state {border-radius:6px;padding:4px 6px;font-size:.69rem;font-weight:600;display:inline-block;text-align:center}
+.fb-state-closed {background:#e9e7f1;color:#5b597a}
+.fb-state-approved {background:#e9f7ee;color:#286a47}
+.fb-state-pending {background:#fff1d7;color:#855e27}
+.fb-past-label {display:block;margin:auto;text-align:center;font-size:.69rem;color:#abb5b9}
+.fb-empty,.fb-no-search {border:1px dashed #d4e1e2;border-radius:10px;background:#fff;padding:28px;text-align:center;color:#6e7c85;font-size:.85rem}
+.fb-dialog {width:min(620px,calc(100% - 28px));max-height:88vh;border:1px solid #e4ebed;border-radius:14px;padding:0;box-shadow:0 20px 60px rgba(15,37,46,.23);background:#fff;color:#343a40}
+.fb-dialog::backdrop {background:rgba(18,35,48,.54)}
+.fb-dialog-toolbar {display:flex;align-items:center;justify-content:space-between;padding:15px 19px;border-bottom:1px solid #ecf1f2}
+.fb-dialog-toolbar h2 {font-size:.99rem;margin:0;font-weight:600}
+#fb-dialog-body {padding:19px;max-height:calc(88vh - 65px);overflow:auto}
+.fb-panel-intro h3 {font-size:1.15rem;font-weight:600;margin:5px 0}
+.fb-panel-intro p {color:#77868d;font-size:.79rem;margin:0 0 18px}
+.fb-panel-section {margin:18px 0}
+.fb-panel-section h4 {font-size:.85rem;font-weight:600;margin:0 0 10px}
+.fb-detail-item {border:1px solid #edf1f2;background:#fcfdfd;border-radius:8px;padding:12px;margin-bottom:8px;font-size:.81rem;display:grid;gap:7px;overflow-wrap:anywhere}
+.fb-detail-heading {display:flex;gap:8px;align-items:center;justify-content:space-between}
+.fb-detail-time {font-size:.74rem;color:#596a74}
+.fb-detail-purpose span {font-weight:600;color:#647681;font-size:.73rem}
+.fb-detail-purpose p {margin:5px 0 0;white-space:pre-wrap;overflow-wrap:anywhere}
+.fb-closure-item {background:#f8f7fa;border-color:#eae7f1}
+.fb-text-action {font-size:.73rem;color:#237d80}
+.fb-empty-day {font-size:.82rem;color:#79868d}
+.fb-panel-actions {display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
+@media (max-width:1199px) {.fb-board{min-width:965px}.fb-board .fb-facility-col{width:166px}}
+@media (max-width:767px) {.fb-search-wrap{flex:1 1 100%;margin-left:0}.fb-filters{flex:1 1 100%}.fb-week-nav{flex:1 1 auto;justify-content:space-between}.fb-table-scroll{max-height:65vh}.fb-day-cell{height:84px}}
+@media (prefers-reduced-motion: reduce) {.fb-category-toggle{transition:none}}
+
+/* Phase 6.2 — clickable booking cards and genuinely full-cell availability actions. */
+.fb-day-cell {height:118px;padding:7px!important;}
+.fb-cell-content {height:100%;min-height:102px;gap:6px;}
+.fb-person {display:flex;flex-direction:column;justify-content:center;gap:3px;
+    min-height:57px;padding:10px 9px;border-radius:8px;cursor:pointer;
+    transition:background-color .14s ease,border-color .14s ease,box-shadow .14s ease;}
+.fb-person-name {font-size:.78rem;line-height:1.35;}
+.fb-person-time {font-size:.68rem;line-height:1.35;}
+.fb-person:hover {border-color:#d68b9b;box-shadow:0 1px 6px rgba(104,34,51,.12);}
+.fb-person-pending:hover {border-color:#d7aa60;}
+.fb-person:focus-visible,.fb-book:focus-visible,.fb-more:focus-visible {
+    outline:3px solid #328b88;outline-offset:2px;}
+.fb-book {display:flex;justify-content:center;align-items:center;min-height:36px;
+    border-radius:8px;padding:9px 5px;font-size:.78rem;}
+/* This applies only to an entirely available day, never a partly booked or restricted day. */
+.fb-day-cell.fb-is-free:not(.fb-is-past) .fb-book {
+    flex:1 1 auto;min-height:102px;margin-top:0;
+    background:#e0f5e9;border-color:#7fcaa7;color:#176342!important;
+}
+.fb-day-cell.fb-is-free:not(.fb-is-past) .fb-book:hover {background:#c6ebd8;border-color:#31946c;}
+.fb-more {display:inline-flex;align-self:center;padding:2px 4px;}
+.fb-detail-highlight {border-color:#2c9190!important;box-shadow:0 0 0 2px rgba(44,145,144,.18);}
+@media (max-width:1199px) {
+    .fb-board {min-width:900px;}
+    .fb-board .fb-facility-col {width:152px;}
+}
+@media (max-width:767px) {
+    .fb-board {min-width:860px;}
+    .fb-day-cell {height:106px;}
+    .fb-cell-content {min-height:90px;}
+    .fb-day-cell.fb-is-free:not(.fb-is-past) .fb-book {min-height:90px;}
+}
+@media (prefers-reduced-motion:reduce) {.fb-person {transition:none;}}
