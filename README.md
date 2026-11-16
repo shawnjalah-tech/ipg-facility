@@ -32,3 +32,5 @@ Run composer test in an uncached development copy. Feature tests require in-memo
 ## Frontend
 
 Blade uses the CSS, JavaScript, icons and fonts included under public/. No Node installation or asset build is needed for the app. Poppins is served locally under the SIL Open Font License. Existing bundled Bootstrap, jQuery, metisMenu, SimpleBar, Waves, SweetAlert2 and Material Design Icons assets retain their supplied notices.
+
+-shon
